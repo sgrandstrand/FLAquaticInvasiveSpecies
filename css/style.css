@@ -1,0 +1,257 @@
+/* Bryan Garner, Sarah Grandstrand, Kevin Palmer, 2019
+ UW-Madison, GEOG-575, Spring 2019 */
+
+html,
+body,
+#mapid {
+    height: 100%;
+    font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    font-family: 'Lato', sans-serif;
+}
+
+.controlHeader {
+    font-weight: bold;
+    text-align: center;
+}
+
+.legend {
+    line-height: 18px;
+    color: #555;
+    background-color: #FFFEFF;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 1;
+}
+
+.legend .circle {
+    fill-opacity: 1;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+    margin-top: 3px;
+}
+
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    padding: 10px;
+    margin: 2px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 0.69em;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.button:hover {
+    background: #3E606F;
+    box-shadow: 0px 15px 20px rgba(62, 96, 111, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+    text-decoration: none;
+}
+
+.tab {
+    margin-left: 55px;
+}
+
+.helpimg {
+    margin-right: 5px;
+}
+
+.sidebar-header {
+    background: #3E606F;
+    font-size: 1.3em;
+}
+
+.sidebar-tabs {
+    background-color: #9E9E87;
+}
+
+.sidebar-tabs > li,
+.sidebar-tabs > ul > li {
+    color: #333;
+}
+
+.sidebar-tabs > li:hover,
+.sidebar-tabs > ul > li:hover {
+    color: #000;
+    background-color: #BDBD9E;
+}
+
+.sidebar-tabs > li.active,
+.sidebar-tabs > ul > li.active {
+    color: #3E606F;
+    background-color: #FCFFF5;
+}
+
+.sidebar-content {
+    background-color: #FCFFF5;
+}
+
+.fishphoto {
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 25px;
+    padding-top: 20px;
+}
+
+.summary {
+    text-align: center;
+    text-indent: 3px;
+}
+
+.prevent {
+    font-style: bold;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #3E606F;
+}
+
+.helpfulLinks {
+    color: #3E606F;
+    font-style: bold;
+    font-weight: 700;
+    margin-top: 35px;
+}
+
+.leaflet-popup-content p {
+    margin: 0.2em 0;
+    line-height: 1.3em;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: #414B4D;
+    color: #D1DBBD;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+}
+
+.custom-popup .leaflet-popup-content-wrapper,
+.custom-popup .leaflet-popup-tip {
+    font-weight: bold;
+    background: #D1DBBD;
+    color: #414B4D;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+}
+
+.axis {
+    font-size: 1em;
+    fill: #555;
+    outline-color: #FCFFF5;
+    text-shadow: 0 0 3px #BDBD9E;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    display: none;
+}
+
+.label {
+    font-size: 12px;
+    fill: #FCFFF5;
+}
+
+.bar {
+    fill: #3E606F;
+}
+
+#barchart {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+}
+
+#spec1 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+#spec2 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+#spec2 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+#spec3 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+#spec4 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+#spec5 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.topspec {
+    max-width: 50%;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+.topspectext {
+    font-style: italic;
+}
+
+.tick {
+    text-transform: capitalize;
+}
+
+cite {
+    font-size: 9px;
+}
+
+.layer-text {
+    font-style: italic;
+}
+
+.madison {
+    font-size: 10px;
+    padding-top: 30px;
+    text-align: center;
+}
