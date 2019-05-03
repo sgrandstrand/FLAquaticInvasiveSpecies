@@ -1,0 +1,171 @@
+<!-- Bryan Garner, Sarah Grandstrand, Kevin Palmer, 2019
+ UW-Madison, GEOG-575, Spring 2019 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Invasive Aquatic Species of Florida</title>
+    <!-- CSS links -->
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="lib/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="lib/jquery/jquery-ui.min.css" rel="stylesheet">
+    <link href="lib/leaflet/leaflet.css" rel="stylesheet">
+    <link href="lib/leaflet/leaflet-easy-button.css" rel="stylesheet">
+    <link href="lib/leaflet/leaflet-tag-filter-button.css" rel="stylesheet">
+    <link href="lib/leaflet/leaflet-search.css" rel="stylesheet">
+    <link href="lib/leaflet/leaflet-sidebar.css" rel="stylesheet">
+    <link href="css/ripple.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar collapsed" id="sidebar">
+        <!-- Nav tabs -->
+        <div class="sidebar-tabs">
+            <!-- Upper tabs -->
+            <ul role="tablist">
+                <li>
+                    <a href="#home" role="tab"><i class="fas fa-bars"></i></a>
+                </li>
+                <li>
+                    <a href="#top5" role="tab"><i class="fas fa-chart-bar"></i></a>
+                </li>
+                <li>
+                    <a href="#help" role="tab"><i class="fa fa-exclamation-triangle"></i></a>
+                </li>
+            </ul>
+            <!-- Lower info tab -->
+            <ul role="tablist">
+                <li>
+                    <a href="#about" role="tab"><i class="fa fa-info-circle"></i></a>
+                </li>
+            </ul>
+        </div>
+        <!-- Tab panes -->
+        <div class="sidebar-content">
+            <!-- Tab pane 1 -->
+            <div class="sidebar-pane" id="home">
+                <h1 class="sidebar-header">Invasive Aquatic Species of Florida <span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1><br>
+                <h2 style="text-align: center">Nonindigenous Aquatic Species (NAS)</h2>
+                <h5 class="summary">Due to the hospitable climate and port cities, invasive species cause a bigger problem in Florida than anywhere else in the continental US. These invasive species negatively impact native wildlife, cause costly destruction and pose a threat to human health and safety.</h5><img alt="Lionfish Photo" class="fishphoto" src="images/Lionfish.jpg">
+                <h5 class="summary">Based out of Gainesville, Florida the <a href="https://nas.er.usgs.gov/default.aspx" target="_blank">Nonindigenous Aquatic Species (NAS)</a> information resource defines these species as those which <i>"enter a body of water or aquatic ecosystem outside of its historic or native range.”</i> As part of the United States Geological Survey (USGS) NAS provides spatial and biogeographic accounts of invasive species for biologists, interagency groups and the general public. Data is collected from databases, scientific reports, federal and state agencies as well as public reporting.</h5>
+            </div>
+            <!-- Tab pane 2 -->
+            <div class="sidebar-pane" id="top5">
+                <h1 class="sidebar-header">Invasive Aquatic Species of Florida <span class="sidebar-close infoButton"><i class="fa fa-caret-left"></i></span></h1><br>
+                <h2 style="font-weight: 700">Top 5 Invasive Species</h2>
+                <p style="text-align: center; margin-bottom: 0; margin-top: 10px; fill: #555; outline-color: #FCFFF5; text-shadow: 0 0 3px #BDBD9E; font-size: 12px;">Specimen Count</p>
+                <div id="barchart"></div>
+                <h4>Species #1</h4>
+                <p id="spec1"></p><img alt="Apple snail" class="topspec" src="images/applesnail.jpg">
+                <p class="topspectext">Originated from South America and can grow up to 6 inches high. Often seen with a pink egg mass containing hundreds to thousands of eggs. Their main health concern is their ability to carry parasites.<br>
+                    <cite><a href="https://commons.wikimedia.org/w/index.php?curid=1840090" target="_blank"><i>Photo</i></a></cite> <cite><a href="https://www.usgs.gov/centers/wetland-and-aquatic-research-center-warc/science-topics/apple-snail" target="_blank"><i>Source</i></a></cite></p>
+                <h4>Species #2</h4>
+                <p id="spec2"></p><img alt="African Jewel fish" class="topspec" src="images/africanjewelfish2.png">
+                <p class="topspectext">Is a type of cichlid that originated from Africa. They can be and can be found in shallow rocky or vegetated freshwater. They compete with sunfish for spawning sites and been found to have a negative effect on snail and shrimp species.<br>
+                    <cite><a href="https://www.usgs.gov/centers/wetland-and-aquatic-research-center-warc/science/trojan-y-invasive-species-control-sex?qt-science_center_objects=0#qt-science_center_objects" target="_blank"><i>Photo</i></a></cite> <cite><a href="https://nas.er.usgs.gov/queries/factsheet.aspx?SpeciesID=457" target="_blank"><i>Source</i></a></cite></p>
+                <h4>Species #3</h4>
+                <p id="spec3"></p><img alt="Asian Clam" class="topspec" src="images/asianclam.jpg">
+                <p class="topspectext">Found in sediment or buried just beneath the surface. They can clog irrigation canals, pipes and drinking water supplies costing about a billion US dollars each year. They also compete with native species for resources.<br>
+                    <cite><a href="https://nas.er.usgs.gov/queries/factsheet.aspx?speciesid=92" target="_blank"><i>Source</i></a></cite></p>
+                <h4>Species #4</h4>
+                <p id="spec4"></p><img alt="Blue Tilapia" class="topspec" src="images/bluetilapia.jpg">
+                <p class="topspectext">A type of cichlid that originates from Africa and the Middle East. As oppose to centrarchids they have a single nostril on both sides of the head and a discontinuous lateral line. They compete with native species for resources and has made significant changes in the fish community structure.<br>
+                    <cite><a href="https://nas.er.usgs.gov/queries/factsheet.aspx?speciesid=463" target="_blank"><i>Source</i></a></cite></p>
+                <h4>Species #5</h4>
+                <p id="spec5"></p><img alt="Mayan Cichlid" class="topspec" src="images/mayancichlid.jpg">
+                <p class="topspectext">Can be found throughout rivers, lakes, ponds, marshes and estuaries. They have a yellow to brown body with five to seven dark vertical bars and a round spot ringed by blue at the caudal fin. They have been shown to reduce native fish population in areas they are abundant by competing for resources<br>
+                    <cite><a href="https://nas.er.usgs.gov/queries/FactSheet.aspx?speciesID=453" target="_blank"><i>Source</i></a></cite></p>
+            </div>
+            <!-- Tab pane 3 -->
+            <div class="sidebar-pane" id="help">
+                <h1 class="sidebar-header">Invasive Aquatic Species of Florida <span class="sidebar-close infoButton"><i class="fa fa-caret-left"></i></span></h1><br>
+                <h2 class="prevent">How to Help and Prevent</h2>
+                <p><img class="helpimg" src="images/release2.svg"><b>DON'T</b> release your pet into the wild.</p>
+                <p class="tab">Contact a pet store for proper handling</p>
+                <p class="tab">Trade with another pet owner</p>
+                <p class="tab">Donate to local aquarium or nature center</p>
+                <p class="tab">Check when Exotic Pet Amnesty day is</p>
+                <p><img class="helpimg" src="images/report.svg"><b>IDENTIFY</b> and <b>REPORT</b> sightings.</p>
+                <p class="tab">Take a photo, report location (GPS coordinates are best) and list the date you saw the species.</p>
+                <p class="tab"><u>App</u>: IveGOTONE</p>
+                <p class="tab"><u>Website</u>: <a href="https://www.eddmaps.org/florida/report/" target="_blank">https://www.eddmaps.org/florida/report/</a></p>
+                <p class="tab"><u>Call Hotline</u>: 888-Ive-Got1 (483-4681)</p>
+                <p><img class="helpimg" src="images/boat.svg"> <b>CHECK</b> boat trailers, boat hulls and propellers.</p>
+                <p class="tab">Rinse and remove any hitchhikers such as snails or mussels.</p>
+                <h4 class="helpfulLinks">Helpful links:</h4>
+                <p><a href="http://ufwildlife.ifas.ufl.edu" target="_blank">http://ufwildlife.ifas.ufl.edu</a><br>
+                    <a href="https://www.floridainvasives.org/" target="_blank">https://www.floridainvasives.org/</a></p>
+            </div>
+            <!-- Lower info/about tab pane -->
+            <div class="sidebar-pane" id="about">
+                <h1 class="sidebar-header">Invasive Aquatic Species of Florida <span class="sidebar-close infoButton"><i class="fa fa-caret-left"></i></span></h1><br>
+                <h2>About this App</h2>
+                <p>This web app was designed and implemented by Bryan Garner, Sarah Grandstrand, and Kevin Palmer. Built using the Leaflet Javascript library to present a responsive and interactive web application. <br>
+                    <br></p>
+                <p>References:</p>
+                <ul>
+                    <li>
+                        <a href="https://leafletjs.com/" target="_blank">Leaflet</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Turbo87/sidebar-v2" target="_blank">Leaflet-sidebar-v2</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/maydemirx/leaflet-tag-filter-button" target="_blank">Leaflet-tag-filter-button</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/stefanocudini/leaflet-search" target="_blank">Leaflet-control-search</a>
+                    </li>
+                    <li>
+                        <a href="https://jquery.com/" target="_blank">JQuery</a>
+                    </li>
+                    <li>
+                        <a href="https://fontawesome.com/" target="_blank">Font Awesome</a>
+                    </li>
+                    <li>
+                        <a href="https://d3js.org/" target="_blank">D3</a>
+                    </li>
+                    <li>
+                        <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
+                    </li>
+                </ul>
+                <p>For more projects or to contact one of the authors, please visit our portfolios:</p>
+                <div class="wrap">
+                    <a class="button" href="https://bryangarner.github.io/Portfolio/" target="_blank"><i class="fas fa-user"></i> Bryan Garner</a> <a class="button" href="https://sgrandstrand.github.io/" target="_blank"><i class="fas fa-user"></i> Sarah Grandstrand</a> <a class="button" href="http://rkpalmerjr.com/" target="_blank"><i class="fas fa-user"></i> Kevin Palmer</a>
+                </div>
+                <p class="madison"> University of Wisconsin - Madison; Geography Department 2019</p>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-map" id="mapid"></div>
+    <!-- Data -->
+    <script src="data/Florida_NAS.json" type="text/javascript"></script>
+    <script src="data/FLcounties.json" type="text/javascript"></script>
+    <script src="data/FLstate.json" type="text/javascript"></script>
+    <script src="data/Florida_WBDHU2.json" type="text/javascript"></script>
+    <script src="data/Florida_WBDHU4.json" type="text/javascript"></script>
+    <script src="data/Florida_WBDHU6.json" type="text/javascript"></script>
+    <script src="data/Florida_WBDHU8.json" type="text/javascript"></script>
+    <!-- External script links -->
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js" type="text/javascript"></script>
+    <script src="http://d3js.org/topojson.v1.min.js" type="text/javascript"></script>
+    <script src="lib/d3/d3.min.js" type="text/javascript"></script>
+    <script src="lib/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="lib/jquery/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="lib/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="lib/jquery/jquery-sidebar.js" type="text/javascript"></script>
+    <script src="lib/leaflet/leaflet-src.js" type="text/javascript"></script>
+    <script src="lib/leaflet/leaflet-easy-button.js" type="text/javascript"></script>
+    <script src="lib/leaflet/leaflet-search.js" type="text/javascript"></script>
+    <script src="lib/leaflet/leaflet-tag-filter-button.js" type="text/javascript"></script>
+    <script src="lib/leaflet/leaflet-sidebar.js" type="text/javascript"></script>
+    <script src="lib/leaflet/leaflet.ajax.min.js" type="text/javascript"></script>
+    <script src="lib/leaflet/leaflet.SliderControl.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+</body>
+</html>
